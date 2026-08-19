@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang=”es”>
+<head>
+    <meta charset=”UTF-8”>
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0”>
+    <title>Abriendo sitio oficial…</title>
+    <style>
+        Body {
+            Background-color: #0b132b;
+            Color: white;
+            Font-family: Arial, sans-serif;
+            Text-align: center;
+            Padding: 50px 20px;
+        }
+        .card {
+            Background-color: #1c2541;
+            Padding: 30px;
+            Border-radius: 15px;
+            Max-width: 400px;
+            Margin: 0 auto;
+            Box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+        }
+        .btn {
+            Background-color: #00b4d8;
+            Color: white;
+            Padding: 15px 30px;
+            Border: none;
+            Border-radius: 25px;
+            Font-size: 18px;
+            Font-weight: bold;
+            Cursor: pointer;
+            Text-decoration: none;
+            Display: inline-block;
+            Margin-top: 20px;
+            Transition: background 0.3s ease;
+        }
+        .btn:hover {
+            Background-color: #0096c7;
+        }
+    </style>
+    <script>
+        // PEGA TU LINK DE AFILIADO REAL ENTRE LAS COMILLAS DE ABAJO
+        Var urlFinal “https://track.leadsmatcher.com/paVmRh”
+
+        Function redirigir() {
+            Var ua = navigator.userAgent || navigator.vendor || window.opera;
+            Var isAndroid = /Android/i.test(ua);
+            
+            If (isAndroid) {
+                // Al usar la URL completa dentro de S.browser_fallback_url garantizamos que si el intent falla, 
+                // Chrome igual procese los parámetros de tracking correctamente.
+                Var intentUrl = “intent://#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=” + encodeURIComponent(urlFinal) + “;end”;
+                Window.location.href = intentUrl;
+            } else {
+                // Si es iPhone o PC, abre el link normal
+                Window.location.href = urlFinal;
+            }
+        }
+        
+        // Ejecuta la redirección automáticamente al cargar la página
+        Window.onload = function() {
+            setTimeout(redirigir, 500);
+        };
+    </script>
+</head>
+<body>
+    <div class=”card”>
+        <h2>Cargando sitio seguro…</h2>
+        <p>Si la página no carga automáticamente en tu navegador, presiona el botón de abajo:</p>
+        <a href=”#” onclick=”redirigir(); return false;” class=”btn”>Presionar aquí para continuar</a>
+    </div>
+</body>
+</html>
+
+
+
