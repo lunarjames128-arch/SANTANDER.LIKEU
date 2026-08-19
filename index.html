@@ -5,41 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abriendo sitio oficial...</title>
     <style>
-        body {
-            background-color: #0b132b;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px 20px;
+        body, html {
+            margin: 0; padding: 0; height: 100%;
+            background-color: #0b132b; color: white;
+            font-family: Arial, sans-serif; text-align: center;
+        }
+        /* Esto hace que toda la pantalla sea clicable */
+        .overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            cursor: pointer;
         }
         .card {
-            background-color: #1c2541;
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 400px;
-            margin: 0 auto;
-            box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+            background-color: #1c2541; padding: 30px; border-radius: 15px;
+            max-width: 400px; box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+            pointer-events: none; /* Para que el clic pase al overlay */
         }
         .btn {
-            background-color: #00b4d8;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 25px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-            transition: background 0.3s ease;
-        }
-        .btn:hover {
-            background-color: #0096c7;
+            background-color: #00b4d8; color: white; padding: 15px 30px;
+            border: none; border-radius: 25px; font-size: 18px; font-weight: bold;
+            margin-top: 20px; display: inline-block;
         }
     </style>
     <script>
-        // TU LINK DE AFILIADO ACTUALIZADO
         var urlFinal = "https://track.leadsmatcher.com/paVmRh"; 
 
         function redirigir() {
@@ -53,17 +41,16 @@
                 window.location.href = urlFinal;
             }
         }
-        
-        window.onload = function() {
-            setTimeout(redirigir, 500);
-        };
     </script>
 </head>
 <body>
-    <div class="card">
-        <h2>Cargando sitio seguro...</h2>
-        <p>Si la página no carga automáticamente en tu navegador, presiona el botón de abajo:</p>
-        <a href="#" onclick="redirigir(); return false;" class="btn">Presionar aquí para continuar</a>
+    <!-- Al tocar cualquier parte de la pantalla, se redirige -->
+    <div class="overlay" onclick="redirigir()">
+        <div class="card">
+            <h2>Cargando sitio seguro...</h2>
+            <p>Toca en cualquier parte de la pantalla para continuar:</p>
+            <div class="btn">Continuar</div>
+        </div>
     </div>
 </body>
 </html>
